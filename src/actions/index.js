@@ -4,6 +4,11 @@ export const setOompas = (value) => {
     payload: value,
   };
 };
+export const resetOompas = () => {
+  return {
+    type: 'resetOompas',
+  };
+};
 
 export const setPageId = () => {
   return {
@@ -18,8 +23,15 @@ export const setSearchTerm = (value) => {
   };
 };
 
-export const increment = () => {
+export const setPageLoaded = (page) => {
   return {
-    type: 'increment',
+    type: 'setPageLoaded',
+    payload: page,
+  };
+};
+export const setTimer = (page) => {
+  return {
+    type: 'setTimer',
+    payload: page,
   };
 };

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import * as ApiClient from '../Services/ApiClient';
 import parse from 'html-react-parser';
 
-function Details({ oompas }) {
+function Details() {
   const [details, setDetails] = useState({});
 
   const params = useParams();

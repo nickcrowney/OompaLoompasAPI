@@ -1,18 +1,19 @@
-// import { createStore } from 'redux';
-// import { persistStore, persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import { createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-// import rootReducer from './reducers';
+import allReducers from './reducers';
 
-// const persistConfig = {
-//   key: 'root',
-//   storage,
-// };
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['setOompas', 'setTimer'],
+};
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, allReducers);
 
-// export default () => {
-//   let store = createStore(persistedReducer);
-//   let persistor = persistStore(store);
-//   return { store, persistor };
-// };
+export const store = createStore(
+  persistedReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+export const persistor = persistStore(store);

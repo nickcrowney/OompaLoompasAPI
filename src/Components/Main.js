@@ -3,35 +3,54 @@ import * as ApiClient from '../Services/ApiClient';
 import { Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector, useDispatch } from 'react-redux';
-import { setOompas, setPageId, setSearchTerm, increment } from '../actions';
+import {
+  setOompas,
+  setPageId,
+  setSearchTerm,
+  setPageLoaded,
+  setTimer,
+  resetOompas,
+} from '../actions';
 
 function Main() {
   const [filteredOompas, setFilteredOompas] = useState([]);
+  const [more, setMore] = useState(true);
 
   const dispatch = useDispatch();
   const pageId = useSelector((state) => state.setPage);
   const searchTerm = useSelector((state) => state.setSearch);
   const oompas = useSelector((state) => state.setOompas);
-  // const inc = useSelector((state) => state.increment);
+  const pageLoaded = useSelector((state) => state.setPageLoaded);
+  const timerState = useSelector((state) => state.setTimer);
 
   useEffect(() => {
-    ApiClient.fetchRequest(1).then((data) => {
-      console.log('HERE');
-      // if (Object.keys(oompas).length === 0) {
-      dispatch(setOompas(data.results));
-      window.preventDefault();
-      // setFilteredOompas(data.results);
-      // }
-    });
+    if (Date.now() - timerState >= 24 * 60 * 60 * 1000) {
+      dispatch(resetOompas());
+      localStorage.setItem('persist:root', []);
+
+      dispatch(setTimer());
+
+      ApiClient.fetchRequest(1).then((data) => {
+        if (timerState === 0) dispatch(setTimer());
+        dispatch(setOompas(data.results));
+      });
+    }
+
+    if (oompas.length === 0) {
+      ApiClient.fetchRequest(1).then((data) => {
+        dispatch(setOompas(data.results));
+      });
+    }
   }, []);
 
-  // useEffect(() => {}, [oompas]);
-
   const fetchData = async () => {
-    ApiClient.fetchRequest(pageId).then((data) => {
-      dispatch(setOompas(data.results));
-    });
-
+    if (!pageLoaded.includes(pageId)) {
+      ApiClient.fetchRequest(pageId).then((data) => {
+        dispatch(setOompas(data.results));
+        dispatch(setPageLoaded(pageId));
+        dispatch(setTimer());
+      });
+    }
     dispatch(setPageId());
   };
 
@@ -60,16 +79,6 @@ function Main() {
 
   return (
     <>
-      {/* <div>
-        {inc}
-        <button
-          onClick={() => {
-            dispatch(increment());
-          }}
-        >
-          +
-        </button>
-      </div> */}
       <form>
         <div>
           <input
@@ -77,6 +86,8 @@ function Main() {
             placeholder="Search"
             onChange={(event) => {
               dispatch(setSearchTerm(event.target.value));
+              if (event.target.value.length > 0) setMore(false);
+              if (event.target.value.length === 0) setMore(true);
             }}
           />
           <img
@@ -96,17 +107,20 @@ function Main() {
         <InfiniteScroll
           dataLength={oompas.length}
           next={fetchData}
-          hasMore={true}
+          hasMore={more}
           loader={<h4 style={{ textAlign: 'center' }}>Loading...</h4>}
           endMessage={
             <p style={{ textAlign: 'center' }}>
-              <b>Yay! You have seen it all</b>
+              <b>Searching only previously seen Oompa Loompas </b>
             </p>
           }
         >
           <div className="oompa-list">
             {!filteredOompas || filteredOompas.length === 0 ? (
-              <div>There are no Oompa Loompas that match your search</div>
+              <div>
+                There are no Oompa Loompas that match your search. Try scrolling
+                through more.
+              </div>
             ) : (
               ''
             )}

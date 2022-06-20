@@ -7587,12 +7587,44 @@
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
 
+"redux-persist-expire-transform@^1.0.2":
+  "integrity" "sha512-xo2YRW4DLlpNv8MHZrK03CPUEYtmCsgQcgsAa4LwnWE/sx81tGyKEuocB0Wqhhwj/Qa4ig3GLMFR7NGs13nPLw=="
+  "resolved" "https://registry.npmjs.org/redux-persist-expire-transform/-/redux-persist-expire-transform-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "redux-persist" "^5.10.0"
+
+"redux-persist-expire@^1.1.0":
+  "integrity" "sha512-JN5BkXSok1b5kj5jmiWAb7Z+AaoneRIBVevgNa/WHH4yV+Jz2XwFbKFmgXOPQI7gTOd21gMkttpxbrjyNMkGZQ=="
+  "resolved" "https://registry.npmjs.org/redux-persist-expire/-/redux-persist-expire-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "redux" "^4.0.1"
+    "redux-persist" "^5.10.0"
+
+"redux-persist-transform-expire-in@^1.1.0":
+  "integrity" "sha512-Sf2upkmdl+w+1EBYyMYb4Th2GrbdN2xYSRQx7I04O/vY8dpF0jtnBd5iuIWWy8sXHj6VtvXZ63CS7owqHW7m9A=="
+  "resolved" "https://registry.npmjs.org/redux-persist-transform-expire-in/-/redux-persist-transform-expire-in-1.1.0.tgz"
+  "version" "1.1.0"
+
+"redux-persist-transform-expire@^0.0.2":
+  "integrity" "sha512-kxP9TCQ0oAx4hd4RP2O/DoCPAZrSD1kfAi6Mmjxd27nYO7aM/erKHPKWHhEvsKKjJsuroqzSBL+S6RmkFOLiWQ=="
+  "resolved" "https://registry.npmjs.org/redux-persist-transform-expire/-/redux-persist-transform-expire-0.0.2.tgz"
+  "version" "0.0.2"
+  dependencies:
+    "traverse" "^0.6.6"
+
+"redux-persist@^5.10.0":
+  "integrity" "sha512-sSJAzNq7zka3qVHKce1hbvqf0Vf5DuTVm7dr4GtsqQVOexnrvbV47RWFiPxQ8fscnyiuWyD2O92DOxPl0tGCRg=="
+  "resolved" "https://registry.npmjs.org/redux-persist/-/redux-persist-5.10.0.tgz"
+  "version" "5.10.0"
+
 "redux-persist@^6.0.0":
   "integrity" "sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ=="
   "resolved" "https://registry.npmjs.org/redux-persist/-/redux-persist-6.0.0.tgz"
   "version" "6.0.0"
 
-"redux@^4.2.0":
+"redux@^4.0.1", "redux@^4.2.0":
   "integrity" "sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA=="
   "resolved" "https://registry.npmjs.org/redux/-/redux-4.2.0.tgz"
   "version" "4.2.0"
@@ -8565,6 +8597,11 @@
   "version" "2.1.0"
   dependencies:
     "punycode" "^2.1.1"
+
+"traverse@^0.6.6":
+  "integrity" "sha512-kdf4JKs8lbARxWdp7RKdNzoJBhGUcIalSYibuGyHJbmk40pOysQ0+QPvlkCOICOivDWU2IJo2rkrxyTK2AH4fw=="
+  "resolved" "https://registry.npmjs.org/traverse/-/traverse-0.6.6.tgz"
+  "version" "0.6.6"
 
 "tryer@^1.0.1":
   "integrity" "sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA=="
