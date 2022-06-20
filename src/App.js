@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import PageRoute from './Components/PageRoute';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <header className="header">
+          <img src={`/logo-umpa-loompa.png`} alt="logo" width={20}></img>
+          &nbsp;
+          <div> Oompa Loompa's Crew</div>
+        </header>
+
+        <PageRoute />
+      </div>
+    </>
   );
 }
 

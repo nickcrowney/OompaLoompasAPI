@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+.oompa-list {
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ind-oompa {
+  padding: 5px;
+  flex: 1 0 21%;
+}
+.oompa-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0vw;
+  padding-bottom: 3vh;
+  color: rgb(54, 54, 54);
+}
+.oompa-name {
+  font-weight: bolder;
+}
+.header {
+  margin: 5vw;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  background-color: rgb(181, 181, 181);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form {
+  position: absolute;
+  right: 5vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.details-home {
+  position: absolute;
+  left: 5vw;
+}
+.headings {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.heading-one {
+  margin-top: 7vh;
+  font-weight: bolder;
+  font-size: x-large;
+}
+.heading-two {
+  font-weight: 400;
+  font-size: larger;
+  color: dimgray;
+  margin-bottom: 3vh;
 }
 
-.App-link {
-  color: #61dafb;
+.details-section {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5vh;
+  padding-left: 15vw;
+  /* padding: 5vw; */
+}
+.details-image {
+  width: 34vw;
+}
+.details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 2vw;
+  padding-right: 15vw;
+}
+.details-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 3vh;
+}
+.details-name {
+  font-weight: bolder;
+  font-size: x-large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-icon {
+  position: absolute;
+  top: 4px;
+  right: 0.5vw;
+  width: 15px;
 }
